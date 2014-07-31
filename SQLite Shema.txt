@@ -1,0 +1,23 @@
+
+CREATE TABLE signs (
+  file_path VARCHAR NOT NULL, 
+  file_name VARCHAR NOT NULL, 
+  md5 VARCHAR, 
+  sha VARCHAR, 
+  size INTEGER, 
+  CONSTRAINT signs_idx PRIMARY KEY(file_path, file_name)
+);
+
+
+CREATE VIEW main.contar_iguales
+AS
+  SELECT s.md5,
+         count(s.md5) AS cantidad
+  FROM signs s
+  GROUP BY s.md5;
+
+CREATE VIEW main.con_repeticiones 
+AS
+SELECT contar_iguales.md5, contar_iguales.cantidad
+FROM contar_iguales
+WHERE contar_iguales.cantidad > 1;

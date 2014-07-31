@@ -1,0 +1,1 @@
+{"from":1,"stepSize":20,"connectString":"jdbc:postgresql://localhost:5432/LibraryDB","user":"jalbert","password":"aa","eliminarUltimosRepetidos":true,"indexar":true,"vaciarDB":true}

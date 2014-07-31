@@ -1,0 +1,24 @@
+
+<project name="Program" basedir=".">
+
+	<property name="jars.dir" value="./lib" />
+
+	<property name="this.dir" value="." />
+	
+	<property name="jfx.dir" value="C:/Program Files/Oracle/JavaFX 2.0 Runtime/lib/" />
+	
+	<path id="classpath">
+		<fileset dir="${jars.dir}" includes="*.jar" />
+		<fileset dir="${jfx.dir}" includes="*.jar" />
+		<fileset dir="${this.dir}" includes="*.jar" />
+	</path>
+
+	<target name="run">
+		<java fork="true" classname="documentation.manager.DocumentationManager">
+			<classpath>
+				<path refid="classpath" />
+			</classpath>
+		</java>
+	</target>
+
+</project>
